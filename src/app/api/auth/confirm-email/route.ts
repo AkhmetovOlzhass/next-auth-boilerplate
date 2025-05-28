@@ -8,7 +8,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Token is required' }, { status: 400 });
     }
 
-    const graphqlResponse = await fetch('http://localhost:3000/graphql', {
+    const graphqlResponse = await fetch(`${process.env.BACKEND_URL}/graphql`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

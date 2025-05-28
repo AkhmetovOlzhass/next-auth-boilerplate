@@ -4,7 +4,7 @@ export async function POST(request: Request) {
   try {
     const { email, password } = await request.json();
 
-    const signupRes = await fetch('http://localhost:3000/graphql', {
+    const signupRes = await fetch(`${process.env.BACKEND_URL}/graphql`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

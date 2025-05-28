@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const response = await fetch(`${process.env.BACKEND_URL || 'http://localhost:3000'}/graphql`, {
+  const response = await fetch(`${process.env.BACKEND_URL}/graphql`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

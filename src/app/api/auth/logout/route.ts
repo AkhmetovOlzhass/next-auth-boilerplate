@@ -7,7 +7,7 @@ export async function POST() {
 
   try {
     if (accessToken) {
-      await fetch('http://localhost:3000/graphql', {
+      await fetch(`${process.env.BACKEND_URL}/graphql`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,6 +26,6 @@ export async function POST() {
   (await cookieStore).delete('refreshToken');
 
   return NextResponse.redirect(
-    new URL('/', process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3001'),
+    new URL('/', process.env.INTERNAL_API_URL),
   );
 }
